@@ -37,7 +37,7 @@ public class SwaggerConfig {
                 "ASE Dashboard Api Documentation",
                 "1.0",
                 "Terms of service",
-                new Contact("Siqi Zhuo", "https://swagger.io", "siqi.zhuo@sap.com"),
+                new Contact("Siqi Zhuo", "https://swagger.io", "siqi0903@gmail.com"),
                 "Apache License Version 2.0",
                 "https://www.apache.org/licenses/LICENSE-2.0",
                 list);
