@@ -12,7 +12,7 @@ ASE Dashboard Api Documentation
 
 ### Contact information
 *Contact* : Siqi Zhuo  
-*Contact Email* : siqi.zhuo@sap.com
+*Contact Email* : siqi0903@gmail.com
 
 
 ### License information
