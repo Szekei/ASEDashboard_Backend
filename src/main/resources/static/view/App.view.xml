@@ -1,0 +1,11 @@
+<mvc:View
+        controllerName="ase.wt.controller.App"
+        xmlns="sap.m"
+        xmlns:mvc="sap.ui.core.mvc"
+        xmlns:l="sap.ui.layout"
+        xmlns:f="sap.ui.layout.form"
+        xmlns:uxap="sap.uxap"
+        xmlns:wt="ase.wt.control"
+        displayBlock="true">
+    <App id="rootControl" />
+</mvc:View>

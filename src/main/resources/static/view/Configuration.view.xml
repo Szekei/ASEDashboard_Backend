@@ -1,0 +1,86 @@
+<mvc:View
+        controllerName="ase.wt.controller.Configuration"
+        xmlns="sap.m"
+        xmlns:mvc="sap.ui.core.mvc"
+        xmlns:wt="ase.wt.control"
+        xmlns:l="sap.ui.layout"
+        xmlns:f="sap.ui.layout.form"
+        xmlns:core="sap.ui.core"
+        displayBlock="true">
+    <Page title="{i18n>title_ase}" showNavButton="true" navButtonPress="handlePressCancel">
+        <headerContent>
+            <Button icon="sap-icon://sys-help" press="handlePressHelp"/>
+            <Button icon="sap-icon://person-placeholder" press="handlePressUser"/>
+        </headerContent>
+        <content>
+            <l:FixFlex>
+                <l:fixContent>
+                    <f:SimpleForm layout="ResponsiveGridLayout" editable="true">
+                        <f:content>
+                            <Label text="{i18n>l_dsName}"/>
+                            <Input value="{/data/name}" onChange = "onChange">
+                                <layoutData>
+                                    <l:GridData span="L3 M4 S4"/>
+                                </layoutData>
+                            </Input>
+                            <Button icon="sap-icon://fob-watch"
+                                    tooltip="{i18n>tip_triggerData}"
+                                    press="onPressClock">
+                                <layoutData>
+                                    <l:GridData span="L1 M1 S1"/>
+                                </layoutData>
+                            </Button>
+
+                        </f:content>
+                    </f:SimpleForm>
+                </l:fixContent>
+                <l:flexContent>
+                    <IconTabBar id="iconTabBar"
+                                stretchContentHeight="true"
+                                backgroundDesign="Transparent"
+                                applyContentPadding="false"
+                                select="handleIconTabBarSelect"
+                                selectedKey="tabBasic">
+                        <items>
+                            <IconTabFilter text=" {i18n>l_basicInfo}" key="tabBasic">
+                                <ScrollContainer height="100%" width="100%" horizontal="false" vertical="true">
+                                    <mvc:XMLView viewName="ase.wt.view.ConfigBasic"/>
+                                </ScrollContainer>
+                            </IconTabFilter>
+                            <IconTabFilter text="{i18n>l_jenkins}" key="tabJenkins">
+                                <ScrollContainer height="100%" width="100%" horizontal="false" vertical="true">
+                                    <mvc:XMLView viewName="ase.wt.view.ConfigJenkins"/>
+                                </ScrollContainer>
+                            </IconTabFilter>
+                            <IconTabFilter text="{i18n>l_jenkinsRef}" key="tabJenkinsRef">
+                                <ScrollContainer height="100%" width="100%" horizontal="false" vertical="true">
+                                    <mvc:XMLView viewName="ase.wt.view.ConfigJenkinsRef"/>
+                                </ScrollContainer>
+                            </IconTabFilter>
+                            <IconTabFilter text="{i18n>l_sonar}" key="tabSonar">
+                                <ScrollContainer height="100%" width="100%" horizontal="false" vertical="true">
+                                    <mvc:XMLView viewName="ase.wt.view.ConfigSonar"/>
+                                </ScrollContainer>
+                            </IconTabFilter>
+                            <IconTabFilter text="{i18n>l_bcp}" key="tabBcp">
+                                <ScrollContainer height="100%" width="100%" horizontal="false" vertical="true">
+                                    <mvc:XMLView viewName="ase.wt.view.ConfigBcp"/>
+                                </ScrollContainer>
+                            </IconTabFilter>
+                        </items>
+                    </IconTabBar>
+                </l:flexContent>
+            </l:FixFlex>
+        </content>
+        <footer>
+            <Toolbar>
+                <ToolbarSpacer/>
+                <Button text="{i18n>b_cancel}" icon="sap-icon://sys-cancel" press="handlePressCancel"/>
+                <Button text="{i18n>b_save}"
+                        icon="sap-icon://save"
+                        press="handleSaveDashboard"
+                        type="Emphasized"/>
+            </Toolbar>
+        </footer>
+    </Page>
+</mvc:View>

@@ -1,0 +1,91 @@
+<core:FragmentDefinition
+        xmlns="sap.m"
+        xmlns:core="sap.ui.core"
+        xmlns:l="sap.ui.layout"
+        xmlns:f="sap.ui.layout.form">
+    <Dialog id="rulesDialog"
+            title="{i18n>l_rules}"
+            resizable="true">
+        <Toolbar>
+            <ToolbarSpacer/>
+            <Button icon="sap-icon://sys-help"/>
+        </Toolbar>
+        <content>
+        <f:SimpleForm layout="ResponsiveGridLayout" editable="true" columnsL="1">
+            <f:content>
+                <Toolbar>
+                    <Title text="{i18n>l_fEndUt}" level="H6" titleStyle="H6"/>
+                </Toolbar>
+                <Label text="{i18n>l_identifier}"/>
+                <Input value="{/frontEndUT/startIdentifier}"
+                       change = "onChangeRule"
+                       placeholder='[Pipeline]\{(FrontendUT)'/>
+                <Input value="{/frontEndUT/endIdentifier}"
+                       change = "onChangeRule"
+                       placeholder='[Pipeline]}'>
+                    <layoutData>
+                        <l:GridData span="L4 M5 S5"/>
+                    </layoutData>
+                </Input>
+                <Label text="{i18n>l_reportFormat}"/>
+                <Input value="{/frontEndUT/reportFormat}"
+                       change = "onChangeRule"
+                       placeholder='Results:Tests run:XX,Failure:XX,Coverage:XX,Errors:XX,Skipped:XX'/>
+                <Toolbar>
+                    <Title text="{i18n>l_bEndUt}" level="H6" titleStyle="H6"/>
+                </Toolbar>
+                <Label text="{i18n>l_identifier}"/>
+                <Input value="{/backEndUT/startIdentifier}"
+                       change = "onChangeRule"
+                       placeholder='[Pipeline]\{(FrontendUT)'/>
+                <Input value="{/backEndUT/endIdentifier}"
+                       change = "onChangeRule"
+                       placeholder='[Pipeline]}'>
+                    <layoutData>
+                        <l:GridData span="L4 M5 S5"/>
+                    </layoutData>
+                </Input>
+                <Label text="{i18n>l_reportFormat}"/>
+                <Input value="{/backEndUT/reportFormat}"
+                       change = "onChangeRule"
+                       placeholder='Results:Tests run:XX,Failure:XX,Coverage:XX,Errors:XX,Skipped:XX'/>
+                <Toolbar>
+                    <Title text="{i18n>l_integrationTest}" level="H6" titleStyle="H6"/>
+                </Toolbar>
+                <Label text="{i18n>l_identifier}"/>
+                <Input value="{/integrationUT/startIdentifier}"
+                       change = "onChangeRule"
+                       placeholder='[Pipeline]\{(FrontendUT)'/>
+                <Input value="{/integrationUT/endIdentifier}" placeholder='[Pipeline]}'>
+                    <layoutData>
+                        <l:GridData span="L4 M5 S5"/>
+                    </layoutData>
+                </Input>
+                <Label text="{i18n>l_reportFormat}"/>
+                <Input value="{/integrationUT/reportFormat}"
+                       change = "onChangeRule"
+                       placeholder='Results:Tests run:XX,Failure:XX,Coverage:XX,Errors:XX,Skipped:XX'/>
+                <Toolbar>
+                    <Title text="{i18n>l_apiTest}" level="H6" titleStyle="H6"/>
+                </Toolbar>
+                <Label text="{i18n>l_identifier}"/>
+                <Input value="{/apiTest/startIdentifier}"
+                       change = "onChangeRule"
+                       placeholder='[Pipeline]\{(FrontendUT)'/>
+                <Input value="{/apiTest/endIdentifier}"
+                       change = "onChangeRule"
+                       placeholder='[Pipeline]}'>
+                    <layoutData>
+                        <l:GridData span="L4 M5 S5"/>
+                    </layoutData>
+                </Input>
+                <Label text="{i18n>l_reportFormat}"/>
+                <Input value="{/apiTest/reportFormat}"
+                       change = "onChangeRule"
+                       placeholder='Results:Tests run:XX,Failure:XX,Coverage:XX,Errors:XX,Skipped:XX'/>
+            </f:content>
+        </f:SimpleForm>
+        </content>
+
+    </Dialog>
+</core:FragmentDefinition>

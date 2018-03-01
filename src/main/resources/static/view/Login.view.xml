@@ -1,0 +1,62 @@
+<mvc:View
+        controllerName="ase.wt.controller.Login"
+        xmlns="sap.m"
+        xmlns:mvc="sap.ui.core.mvc"
+        xmlns:l="sap.ui.layout"
+        xmlns:f="sap.ui.layout.form"
+        xmlns:uxap="sap.uxap"
+        xmlns:wt="ase.wt.control"
+        displayBlock="true">
+    <Toolbar>
+        <ToolbarSpacer/>
+        <Title text="{i18n>title_app}" />
+        <ToolbarSpacer/>
+    </Toolbar>
+    <NavContainer id="navContainer">
+    <Page showHeader="false" id="loginForm">
+        <content>
+                <Panel class="sapUiLargeMarginBeginEnd" backgroundDesign="Transparent">
+                    <FlexBox alignItems="Start" justifyContent="Center">
+                        <f:SimpleForm
+                                      title="{i18n>title_login}"
+                                      layout="ResponsiveGridLayout">
+                            <f:content>
+                                <Label text="{i18n>l_sapId}"/>
+                                <Input id="l_id" type="Text" placeholder="{i18n>l_sapId}" submit="handleLogin"/>
+                                <Label text="{i18n>l_password}"/>
+                                <Input id="l_pwd" type="Password" placeholder="{i18n>l_password}" submit="handleLogin"/>
+                                <Button type="Emphasized" text="{i18n>b_login}" press="handleLogin"/>
+                                <Link text="{i18n>b_register}" press="onPressRegister"/>
+                                <!--<Link text="Lost Password" />-->
+                            </f:content>
+                        </f:SimpleForm>
+                    </FlexBox>
+                </Panel>
+        </content>
+    </Page>
+
+    <Page showHeader="false" id="registerForm">
+        <content>
+            <Panel class="sapUiLargeMarginBeginEnd" backgroundDesign="Transparent">
+                <FlexBox alignItems="Start" justifyContent="Center">
+                    <f:SimpleForm
+                            title="{i18n>title_register}"
+                            layout="ResponsiveGridLayout"
+                            labelMinWidth="3" labelSpanM="3">
+                        <Label text="{i18n>l_sapId}"/>
+                        <Input id="n_id" type="Text" placeholder="{i18n>l_sapId}" submit="handleRegister"/>
+                        <Label text="{i18n>l_userName}"/>
+                        <Input id="n_name" placeholder="{i18n>l_userName}" submit="handleRegister"/>
+                        <Label text="{i18n>l_password}"/>
+                        <Input id="n_pwd" type="Password" placeholder="{i18n>l_password}" submit="handleRegister"/>
+                        <Label text="{i18n>l_email}"/>
+                        <Input id="n_mail" type="Email" placeholder="{i18n>l_email}" submit="handleRegister"/>
+                        <Button text="{i18n>b_register}" press="handleRegister" type="Emphasized"/>
+                        <Link text="{i18n>b_userAlready}" press="onPressHaveAccount"/>
+                    </f:SimpleForm>
+                </FlexBox>
+            </Panel>
+        </content>
+    </Page>
+    </NavContainer>
+</mvc:View>

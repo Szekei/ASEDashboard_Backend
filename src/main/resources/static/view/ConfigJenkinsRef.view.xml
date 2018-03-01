@@ -1,0 +1,112 @@
+<mvc:View
+        controllerName="ase.wt.controller.ConfigJenkinsRef"
+        xmlns="sap.m"
+        xmlns:mvc="sap.ui.core.mvc"
+        xmlns:f="sap.ui.layout.form"
+        xmlns:l="sap.ui.layout"
+        xmlns:core="sap.ui.core"
+        xmlns:table="sap.ui.table">
+    <f:SimpleForm id="form_jenkinsRef" layout="ResponsiveGridLayout" editable="true" columnsL="1" width="70%">
+        <f:content>
+            <Toolbar>
+                <Title text="{i18n>l_serverRef}" level="H5" titleStyle="H5"/>
+                <core:Icon
+                        src="sap-icon://sys-help-2"
+                        tooltip="{i18n>tip_refServer}"
+                        color="#031E48">
+                    <core:layoutData>
+                        <FlexItemData growFactor="1"/>
+                    </core:layoutData>
+                </core:Icon>
+            </Toolbar>
+            <Label text="{i18n>l_url}"/>
+
+            <Input value="{/data/jenkinsServerRef/url}"
+                   type="Url"
+                   placeholder="http://host:port"/>
+            <Label text="{i18n>l_userName}"/>
+            <Input value="{/data/jenkinsServerRef/userName}"/>
+            <Label text="{i18n>l_pwd}"/>
+            <Input value="{/data/jenkinsServerRef/password}"
+                   change="encryptPassword"
+                   type="Password"/>
+            <Button text="{i18n>b_ping}"
+                    tooltip="{i18n>tip_ping}"
+                    press="handlePingJenkinsServer">
+                <layoutData>
+                    <l:GridData span="L3 M3 S3"/>
+                </layoutData>
+            </Button>
+            <ObjectStatus id="jenkinsServerRefStatus" class="sapUiSmallMarginBottom">
+                <layoutData>
+                    <l:GridData span="L2 M2 S2"/>
+                </layoutData>
+            </ObjectStatus>
+            <Toolbar>
+                <Title text="{i18n>l_jobsRef}" level="H5" titleStyle="H5"/>
+            </Toolbar>
+            <!--<CheckBox text="{i18n>l_pipeLine}"-->
+                      <!--editable="false"-->
+                      <!--tooltip="{i18n>tip_activatePipeline}"-->
+                      <!--selected="{/data/jenkinsServerRef/isPipelineJob}"/>-->
+
+            <Toolbar>
+                <Button icon="sap-icon://add" press="handleAddJob" tooltip="{i18n>tip_createJob}"/>
+            </Toolbar>
+            <table:TreeTable id="refJobsTable"
+                             rows="{path:'/data', parameters: {arrayNames:['modules']}}"
+                             width="100%"
+                             selectionMode="Single"
+                             visibleRowCountMode="Interactive"
+                             visibleRowCount="2"
+                             toggleOpenState="onToggleOpenState"
+                             showNoData="false">
+                <table:columns>
+                    <table:Column>
+                        <Label text="{i18n>l_projectModule}"/>
+                        <table:template>
+                            <Input value="{name}"
+                                   editable="false"/>
+                        </table:template>
+                    </table:Column>
+                    <table:Column>
+                        <Label text="{i18n>l_jobName}"/>
+                        <table:template>
+                            <Input value="{jenkinsJobRef/name}"
+                                   editable="{=${jenkinsJobRef/rules}>''}"
+                                   change="onChangeJob"/>
+                        </table:template>
+                    </table:Column>
+                    <table:Column>
+                        <Label text="{i18n>col_active}"/>
+                        <table:template>
+                            <CheckBox selected="{jenkinsJobRef/isActive}"
+                                      enabled="{=${jenkinsJobRef/rules}>''}"
+                                      select="onChangeJob"/>
+                        </table:template>
+                    </table:Column>
+                    <table:Column width="8rem">
+                        <Label text="{i18n>col_rules}"/>
+                        <table:template>
+                            <Button icon="sap-icon://show"
+                                    tooltip="{i18n>tip_showRules}"
+                                    press="handleSelectRules"
+                                    type="Transparent"
+                                    enabled="{=${jenkinsJobRef/rules}>''}"/>
+                        </table:template>
+                    </table:Column>
+                    <table:Column width="8rem">
+                        <table:template>
+                            <Button icon="sap-icon://sys-cancel"
+                                    tooltip="{i18n>tip_deleteJob}"
+                                    type="Transparent"
+                                    press="handleDeleteJob"
+                                    enabled="{=${jenkinsJobRef/rules}>''}"/>
+                        </table:template>
+                    </table:Column>
+                </table:columns>
+            </table:TreeTable>
+        </f:content>
+    </f:SimpleForm>
+
+</mvc:View>

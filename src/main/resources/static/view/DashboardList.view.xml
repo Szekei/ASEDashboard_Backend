@@ -1,0 +1,125 @@
+<mvc:View
+        controllerName="ase.wt.controller.DashboardList"
+        xmlns="sap.m"
+        xmlns:mvc="sap.ui.core.mvc"
+        xmlns:wt="ase.wt.control"
+        displayBlock="true">
+
+    <Page title="{i18n>title_ase}" showNavButton="true" navButtonPress="onNavBack">
+        <headerContent>
+            <Button icon="sap-icon://sys-help" press="handlePressHelp"/>
+            <Button icon="sap-icon://person-placeholder" press="handlePressUser"/>
+        </headerContent>
+        <content>
+            <IconTabBar>
+                <items>
+                    <IconTabFilter icon="sap-icon://user-edit"
+                                   tooltip="{i18n>tip_myDashboard}"
+                                   count="{= ${/Owned_Dashboards}.length}">
+                        <Table id="dsTableList" width="auto" items="{path:'/Owned_Dashboards'}">
+                            <headerToolbar>
+                                <Toolbar>
+                                    <Title text="{i18n>title_dashboardList}" level="H1"/>
+                                    <ToolbarSpacer/>
+                                    <Button icon="sap-icon://add"
+                                            press="handleAddDashboard"
+                                            tooltip="{i18n>tip_addDashboard}"/>
+                                    <ToolbarSeparator/>
+                                    <SearchField width="15rem" liveChange="onSearch"/>
+                                </Toolbar>
+                            </headerToolbar>
+                            <columns>
+                                <Column>
+                                    <Text text="{i18n>col_dashboardName}"/>
+                                </Column>
+                                <Column>
+                                    <Text text="{i18n>col_createdBy}"/>
+                                </Column>
+                                <Column>
+                                    <Text text="{i18n>col_createdOn}"/>
+                                </Column>
+                                <Column width="8rem">
+                                    <Text text="{i18n>col_active}"/>
+                                </Column>
+                                <Column width="8rem">
+                                    <Text text="{i18n>col_log}"/>
+                                </Column>
+                                <Column width="8rem">
+                                    <Text text="{i18n>col_viewers}"/>
+                                </Column>
+                                <Column width="8rem">
+                                </Column>
+                            </columns>
+                            <items>
+                                <ColumnListItem type="Navigation" press="handleDashboardItemPressed">
+                                    <Text text="{name}"/>
+                                    <Text text="{createdBy}"/>
+                                    <Text text="{createdTime}"/>
+                                    <RadioButton groupName="isActive"
+                                                 tooltip="{i18n>tip_activateDashboard}"
+                                                 selected="{active}"
+                                                 select="handleActiveChange"/>
+                                    <Button icon="sap-icon://inspection"
+                                            tooltip="{i18n>tip_viewLog}"
+                                            press="handleViewLog"
+                                            type="Transparent"/>
+                                    <Button icon="sap-icon://group"
+                                            tooltip="{i18n>tip_manageViewer}"
+                                            press="handleManageUsers"
+                                            type="Transparent"/>
+                                    <Button icon="sap-icon://sys-cancel"
+                                            tooltip="{i18n>tip_deleteDashboard}"
+                                            enabled="{=${active}===false }"
+                                            type="Transparent"
+                                            press="handleDeleteDashboard"/>
+                                </ColumnListItem>
+                            </items>
+                        </Table>
+                    </IconTabFilter>
+
+                    <IconTabFilter icon="sap-icon://company-view"
+                                   tooltip="{i18n>tip_viewDashboard}"
+                                   count="{= ${/ReadOnly_Dashboards}.length}">
+                        <Table id="dsTableList_viewer" width="auto" items="{path:'/ReadOnly_Dashboards'}">
+                            <headerToolbar>
+                                <Toolbar>
+                                    <Title text="{i18n>title_viewedDsList}" level="H1"/>
+                                    <ToolbarSpacer/>
+
+                                    <ToolbarSeparator/>
+                                    <SearchField width="15rem" liveChange="onSearchViewedDs"/>
+                                </Toolbar>
+                            </headerToolbar>
+                            <columns>
+                                <Column>
+                                    <Text text="{i18n>col_dashboardName}"/>
+                                </Column>
+                                <Column>
+                                    <Text text="{i18n>col_createdBy}"/>
+                                </Column>
+                                <Column>
+                                    <Text text="{i18n>col_owner}"/>
+                                </Column>
+                                <Column>
+
+                                </Column>
+                            </columns>
+                            <items>
+                                <ColumnListItem>
+                                    <Text text="{name}"/>
+                                    <Text text="{createdBy}"/>
+                                    <Text text="{owner}"/>
+                                    <Button icon="sap-icon://action"
+                                            tooltip="{i18n>tip_launchDashboard}"
+                                            press="handleLaunchDashboard"
+                                            type="Transparent"/>
+                                </ColumnListItem>
+                            </items>
+                        </Table>
+                    </IconTabFilter>
+                </items>
+            </IconTabBar>
+        </content>
+    </Page>
+
+</mvc:View>

@@ -1,0 +1,134 @@
+<core:FragmentDefinition
+        xmlns="sap.m"
+        xmlns:mvc="sap.ui.core.mvc"
+        xmlns:wt="ase.wt.control"
+        xmlns:core="sap.ui.core">
+    <wt:Panel title="{i18n>title_frontEndUT}"
+              link="{/frontendUT/url}"
+              subTitle="Number of Issues:{/frontendUT/count}"
+              iconVisible="{/frontendUT/iconVisible}"
+              iconColor="{/frontendUT/iconColor}"
+              message="{/frontendUT/message}"
+              width="24%">
+        <wt:panelTable>
+            <Table items="{path:'/frontendUT/data'}">
+                <columns>
+                    <Column width="40%">
+                        <Text text="{i18n>col_module}"/>
+                    </Column>
+                    <Column width="30%">
+                        <Text text="{i18n>col_issues}"/>
+                    </Column>
+                    <Column width="30%">
+                        <Text text="{i18n>col_coverage}"/>
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="{moduleName}"/>
+                            <Link text="{issues}" target="_blank" href="{jenkinsUrl}"/>
+                            <Link text="{coverage}" target="_blank" href="{jenkinsUrl}"/>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </wt:panelTable>
+    </wt:Panel>
+    <wt:Panel title="{i18n>title_backEndUT}"
+              link="{/backendUT/url}"
+              subTitle="Number of Issues:{/backendUT/count} Average:{/backendUT/average}"
+              iconVisible="{/backendUT/iconVisible}"
+              iconColor="{/backendUT/iconColor}"
+              message="{/backendUT/message}"
+              width="24%">
+        <wt:panelTable>
+            <Table items="{path:'/backendUT/data'}">
+                <columns>
+                    <Column width="40%">
+                        <Text text="{i18n>col_module}"/>
+                    </Column>
+                    <Column width="30%">
+                        <Text text="{i18n>col_issues}"/>
+                    </Column>
+                    <Column widht="30%">
+                        <Text text="{i18n>col_coverage}"/>
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="{moduleName}"/>
+                            <Link text="{issues}" target="_blank" href="{jenkinsUrl}"/>
+                            <Link text="{coverage}" target="_blank" href="{sonarUrl}"/>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </wt:panelTable>
+    </wt:Panel>
+    <wt:Panel title="{i18n>title_apiTest}"
+              link="{/api/url}"
+              subTitle="Number of Issues: {/api/count}"
+              iconVisible="{/api/iconVisible}"
+              iconColor="{/api/iconColor}"
+              message="{/api/message}"
+              width="24%">
+        <wt:panelTable>
+            <Table items="{path:'/api/data'}">
+                <columns>
+                    <Column width="40%">
+                        <Text text="{i18n>col_module}"/>
+                    </Column>
+                    <Column width="30%">
+                        <Text text="{i18n>col_cases}"/>
+                    </Column>
+                    <Column width="30%">
+                        <Text text="{i18n>col_issues}"/>
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="{moduleName}"/>
+                            <Link text="{cases}" target="_blank" href="{jenkinsUrl}"/>
+                            <Link text="{issues}" target="_blank" href="{jenkinsUrl}"/>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </wt:panelTable>
+    </wt:Panel>
+    <wt:Panel title="{i18n>title_intTest}"
+              subTitle="NOT AVAILABLE"
+              iconVisible="{/integrationTest/iconVisible}"
+              iconColor="{/integrationTest/iconColor}"
+              message="{/integrationTest/message}"
+              width="24%">
+        <wt:panelTable>
+            <!--<Table items="{path:'/integrationTest/data'}" noDataText="COMING SOON">-->
+                <!--<columns>-->
+                    <!--<Column width="40%">-->
+                        <!--<Text text="{i18n>col_module}"/>-->
+                    <!--</Column>-->
+                    <!--<Column width="30%">-->
+                        <!--<Text text="{i18n>col_issues}"/>-->
+                    <!--</Column>-->
+                    <!--<Column width="30%">-->
+                        <!--<Text text="{i18n>col_coverage}"/>-->
+                    <!--</Column>-->
+                <!--</columns>-->
+                <!--<items>-->
+                    <!--<ColumnListItem>-->
+                        <!--<cells>-->
+                            <!--<Text text="{moduleName}"/>-->
+                            <!--<Text text="{issues}"/>-->
+                            <!--<Text text="{coverage}"/>-->
+                        <!--</cells>-->
+                    <!--</ColumnListItem>-->
+                <!--</items>-->
+            <!--</Table>-->
+        </wt:panelTable>
+    </wt:Panel>
+
+</core:FragmentDefinition>

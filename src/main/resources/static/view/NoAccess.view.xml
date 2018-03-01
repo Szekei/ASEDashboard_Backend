@@ -1,0 +1,9 @@
+<mvc:View
+        controllerName="ase.wt.controller.App"
+        xmlns="sap.m"
+        xmlns:mvc="sap.ui.core.mvc">
+    <MessagePage
+            title="{i18n>m_noAccess}"
+            text="{i18n>m_noAccess.text}"
+            description="{i18n>m_noAccess.description}"/>
+</mvc:View>

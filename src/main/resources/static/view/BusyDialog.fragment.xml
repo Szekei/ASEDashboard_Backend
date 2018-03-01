@@ -1,0 +1,9 @@
+<core:FragmentDefinition
+        xmlns="sap.m"
+        xmlns:core="sap.ui.core">
+    <BusyDialog
+            title="{i18n>title_loadData}"
+            text="{i18n>m_busyMessage}"
+            showCancelButton="true"
+            close="onDialogClosed"/>
+</core:FragmentDefinition>

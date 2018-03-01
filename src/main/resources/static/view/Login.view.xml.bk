@@ -1,0 +1,49 @@
+<mvc:View
+        controllerName="ase.wt.controller.Login"
+        xmlns="sap.m"
+        xmlns:mvc="sap.ui.core.mvc"
+        xmlns:l="sap.ui.layout"
+        xmlns:f="sap.ui.layout.form"
+        xmlns:uxap="sap.uxap"
+        xmlns:wt="ase.wt.control"
+        displayBlock="true">
+    <Page title="{i18n>title_loginScreen}">
+        <content>
+            <Panel class="sapUiLargeMarginBeginEnd">
+                <f:SimpleForm id="loginForm"
+                              width="50%"
+                              title="{i18n>title_login}"
+                              layout="ResponsiveGridLayout"
+                              labelMinWidth="3"
+                              labelSpanM="3">
+                    <f:content>
+                        <Label text="{i18n>l_sapId}"/>
+                        <Input id="l_id" type="Text" placeholder="{i18n>l_sapId}" submit="handleLogin"/>
+                        <Label text="{i18n>l_password}"/>
+                        <Input id="l_pwd" type="Password" placeholder="{i18n>l_password}" submit="handleLogin"/>
+                        <Label/>
+                        <Button type="Emphasized" text="{i18n>b_login}" press="handleLogin"/>
+                    </f:content>
+                </f:SimpleForm>
+            </Panel>
+            <Panel class="sapUiLargeMarginBeginEnd">
+                <f:SimpleForm id="registerForm"
+                              width="50%"
+                              title="{i18n>title_register}"
+                              layout="ResponsiveGridLayout"
+                              labelMinWidth="3" labelSpanM="3">
+                    <Label text="{i18n>l_sapId}"/>
+                    <Input id="n_id" type="Text" placeholder="{i18n>l_sapId}" submit="handleRegister"/>
+                    <Label text="{i18n>l_userName}"/>
+                    <Input id="n_name" placeholder="{i18n>userName}" submit="handleRegister"/>
+                    <Label text="{i18n>l_password}"/>
+                    <Input id="n_pwd" type="Password" placeholder="{i18n>l_password}" submit="handleRegister"/>
+                    <Label text="{i18n>l_email}"/>
+                    <Input id="n_mail" type="Email" placeholder="{i18n>l_email}" submit="handleRegister"/>
+                    <Label/>
+                    <Button text="{i18n>b_register}" press="handleRegister"/>
+                </f:SimpleForm>
+            </Panel>
+        </content>
+    </Page>
+</mvc:View>

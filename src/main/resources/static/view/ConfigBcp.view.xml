@@ -1,0 +1,44 @@
+<mvc:View
+        controllerName="ase.wt.controller.ConfigBcp"
+        xmlns="sap.m"
+        xmlns:mvc="sap.ui.core.mvc"
+        xmlns:f="sap.ui.layout.form"
+        xmlns:l="sap.ui.layout"
+        xmlns:u="sap.ui.unified">
+    <f:SimpleForm id="form_bcp" layout="ResponsiveGridLayout" editable="true" columnsL="1" width="70%">
+        <f:content>
+            <Toolbar>
+                <Title text="{i18n>l_server}" level="H5" titleStyle="H5"/>
+            </Toolbar>
+            <Label text="{i18n>l_url}"/>
+            <Input value="https://support.wdf.sap.corp" editable="false"/>
+            <Toolbar>
+                <Title text="{i18n>l_component}" level="H5" titleStyle="H5"/>
+            </Toolbar>
+            <Label/>
+            <Input value="{/data/bcpServer/component}"/>
+            <Toolbar>
+                <Title text="{i18n>l_userList}" level="H5" titleStyle="H5"/>
+                <ToolbarSpacer/>
+                <Button icon="sap-icon://add" press="handleAddUser" tooltip="{i18n>tip_createUser}"/>
+            </Toolbar>
+            <Label/>
+            <Table id="bcpUserList" mode="Delete" delete="handleDeleteUser"
+                   items="{path:'/data/bcpServer/projectMembers'}">
+                <layoutData>
+                    <l:GridData span="L10 M10 S10"/>
+                </layoutData>
+                <columns>
+                    <Column>
+                        <Text text="{i18n>l_userId}"/>
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem>
+                        <Input value="{}"/>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </f:content>
+    </f:SimpleForm>
+</mvc:View>

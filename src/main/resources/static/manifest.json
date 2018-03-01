@@ -1,0 +1,118 @@
+{
+  "_version": "1.1.0",
+  "sap.app": {
+    "_version": "1.1.0",
+    "id": "ase.wt",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "title": "{{title_app}}",
+    "description": "{{desc_app}}",
+    "applicationVersion": {
+      "version": "1.0.0"
+    }
+  },
+  "sap.ui": {
+    "_version": "1.1.0",
+    "technology": "UI5",
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    },
+    "supportedThemes": [
+      "sap_bluecrystal"
+    ]
+  },
+  "sap.ui5": {
+    "_version": "1.1.0",
+    "rootView": "ase.wt.view.App",
+    "dependencies": {
+      "minUI5Version": "1.30",
+      "libs": {
+        "sap.m": {}
+      }
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "ase.wt.i18n.i18n"
+        }
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "viewType": "XML",
+        "viewPath": "ase.wt.view",
+        "controlId": "rootControl",
+        "controlAggregation": "pages"
+      },
+      "routes": [
+        {
+          "pattern": "",
+          "name": "login",
+          "target": "login"
+        },
+        {
+          "pattern": "dashboard/{id}/view/{userId}",
+          "name": "dashboard",
+          "target": "dashboard"
+        },
+        {
+          "pattern": "dashboardManager/{userId}",
+          "name": "dashboardManager",
+          "target": "dashboardManager"
+        },
+        {
+          "pattern": "dashboardManager/{userId}/config/{id}",
+          "name": "configPage",
+          "target": "configPage"
+        },
+        {
+          "pattern": "dashboardManager/viewer/{id}",
+          "name": "viewerManager",
+          "target": "viewerManager"
+        },
+        {
+          "pattern": "noAccess",
+          "name": "noAccess",
+          "target": "noAccess"
+        }
+      ],
+      "targets": {
+        "login": {
+          "viewName": "Login",
+          "viewLevel": 1
+        },
+        "dashboard": {
+          "viewName": "Board",
+          "viewLevel": 2
+        },
+        "dashboardManager": {
+          "viewName": "DashboardList",
+          "viewLevel": 2
+        },
+        "configPage": {
+          "viewName": "Configuration",
+          "viewLevel": 3
+        },
+        "viewerManager": {
+          "viewName": "ViewerList",
+          "viewLevel": 3
+        },
+        "noAccess": {
+          "viewName": "NoAccess",
+          "transaction": "show"
+        }
+      }
+    }
+  }
+}

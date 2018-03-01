@@ -1,0 +1,37 @@
+<core:FragmentDefinition
+        xmlns="sap.m"
+        xmlns:core="sap.ui.core" >
+    <Dialog
+            id="logDialog"
+            type="Message"
+            resizable="true">
+        <content>
+            <!--<List busyIndicatorDelay="500" growing="true" items="{path:'/'}">-->
+                <!--<items>-->
+                <!--<StandardListItem title="{createTime}" description="{message}" info="{dataType}"/>-->
+                <!--</items>-->
+            <!--</List>-->
+            <Table items="{path:'/'}" growing="true" growingThreshold="4" growingScrollToLoad="false">
+                <columns>
+                    <Column width="10px"><Text text="{i18n>col_timestamp}"/></Column>
+                    <Column width="10px"><Text text="{i18n>col_dataType}"/></Column>
+                    <Column width="100px"><Text text="{i18n>col_message}"/></Column>
+                </columns>
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="{createTime}" styleClass="grayText"/>
+                            <Text text="{dataType}" styleClass=""/>
+                            <Text text="{message}" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+        <beginButton>
+            <Button
+                    text="{i18n>b_close}"
+                    press="onCloseDialog"/>
+        </beginButton>
+    </Dialog>
+</core:FragmentDefinition>

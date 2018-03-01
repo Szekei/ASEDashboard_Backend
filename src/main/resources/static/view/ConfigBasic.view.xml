@@ -1,0 +1,50 @@
+<mvc:View
+        controllerName="ase.wt.controller.ConfigBasic"
+        xmlns="sap.m"
+        xmlns:mvc="sap.ui.core.mvc"
+        xmlns:f="sap.ui.layout.form"
+        xmlns:l="sap.ui.layout"
+        xmlns:core="sap.ui.core"
+        xmlns:table="sap.ui.table">
+    <f:SimpleForm id="form_basic" layout="ResponsiveGridLayout" editable="true" columnsL="1"
+                  adjustLabelSpan="false">
+        <f:content>
+            <Toolbar>
+                <Title text="{i18n>l_projectModule}" level="H5" titleStyle="H5"/>
+                <Button icon="sap-icon://delete" press="handleDeleteModule" tooltip="{i18n>tip_deleteProject}" visible="false"/>
+                <Button icon="sap-icon://add" press="handleAddModule" tooltip="{i18n>tip_createProject}"/>
+            </Toolbar>
+            <table:TreeTable id="moduleTable"
+                             rows="{path:'/data', parameters: {arrayNames:['modules']}}"
+                             columnHeaderVisible="false"
+                             width="50%"
+                             selectionMode="Single"
+                             expandFirstLevel="true"
+                             visibleRowCountMode="Interactive"
+                             toggleOpenState="onToggleOpenState"
+                             visibleRowCount="5"
+                             showNoData="false">
+                <table:columns>
+                    <table:Column width="15rem">
+                        <table:template>
+                            <Input value="{name}"  liveChange="changeOperation"/>
+                        </table:template>
+                    </table:Column>
+                    <table:Column width="13rem">
+                        <table:template>
+                            <Text text="{type}" />
+                        </table:template>
+                    </table:Column>
+                    <table:Column width="8rem">
+                        <table:template>
+                            <Button icon="sap-icon://sys-cancel"
+                                    type="Transparent"
+                                    press="handleDeleteModule" />
+                        </table:template>
+                    </table:Column>
+                </table:columns>
+
+            </table:TreeTable>
+        </f:content>
+    </f:SimpleForm>
+</mvc:View>

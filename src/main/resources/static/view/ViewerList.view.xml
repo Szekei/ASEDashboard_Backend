@@ -1,0 +1,58 @@
+<mvc:View
+        controllerName="ase.wt.controller.ViewerList"
+        xmlns="sap.m"
+        xmlns:mvc="sap.ui.core.mvc"
+        displayBlock="true">
+    <App id="rootControl">
+        <pages>
+            <Page title="{i18n>title_ase}" showNavButton="true" navButtonPress="handlePressCancel">
+                <headerContent>
+                    <Button icon="sap-icon://sys-help" press="handlePressHelp"/>
+                    <Button icon="sap-icon://person-placeholder" press="handlePressUser"/>
+                </headerContent>
+                <content>
+                    <Table id="dsUserList" items="{path:'/'}" mode="Delete" delete="handleDeleteViewer">
+                        <headerToolbar>
+                            <Toolbar>
+                                <Title text="{i18n>title_userList}" level="H1"/>
+                                <ToolbarSpacer/>
+                                <Button icon="sap-icon://add"
+                                        press="handleAddViewer"
+                                        tooltip="{i18n>tip_addViewer}"/>
+                                <ToolbarSeparator/>
+                                <SearchField width="15rem" liveChange="onSearch"/>
+                            </Toolbar>
+                        </headerToolbar>
+                        <columns>
+                            <Column width="300px">
+                                <Text text="{i18n>col_userId}"/>
+                            </Column>
+                        </columns>
+                        <items>
+                            <ColumnListItem>
+                                <Input value="{viewerId}" liveChange="changeToEditMode"/>
+                            </ColumnListItem>
+                        </items>
+                    </Table>
+                </content>
+                <footer>
+                    <Toolbar>
+                        <ToolbarSpacer/>
+                        <Button id = "btn_cancelViewer"
+                                enabled = "false"
+                                text="{i18n>b_cancel}"
+                                icon="sap-icon://sys-cancel"
+                                press="handlePressCancel"/>
+                        <Button text="{i18n>b_save}"
+                                icon="sap-icon://save"
+                                press="onSaveUser"
+                                type="Emphasized"
+                                id="btn_saveViewer"
+                                enabled="false"/>
+                    </Toolbar>
+                </footer>
+            </Page>
+        </pages>
+    </App>
+
+</mvc:View>

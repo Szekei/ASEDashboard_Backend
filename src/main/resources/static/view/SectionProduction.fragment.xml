@@ -1,0 +1,91 @@
+<core:FragmentDefinition
+        xmlns="sap.m"
+        xmlns:mvc="sap.ui.core.mvc"
+        xmlns:wt="ase.wt.control"
+        xmlns:core="sap.ui.core">
+    <wt:Panel title="{i18n>title_accTest}"
+              link="https://support.wdf.sap.corp"
+              width="32%">
+        <wt:panelTable>
+            <Table items="{path:'/accTicket'}">
+                <columns>
+                    <Column mergeDuplicates="true" width="40%">
+                        <Text text="{i18n>col_project}"/>
+                    </Column>
+                    <Column>
+                        <Text text="{i18n>col_priority}"/>
+                    </Column>
+                    <Column>
+                        <Text text="{i18n>col_number}"/>
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="{project}"/>
+                            <Text text="{priority}"/>
+                            <Text text="{count}"/>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </wt:panelTable>
+    </wt:Panel>
+    <wt:Panel title="{i18n>title_securityTest}"
+              subTitle="NOT AVAILABLE"
+              width="32%">
+        <wt:panelTable>
+            <!--<Table items="{path:'/security'}" noDataText="COMING SOON">-->
+                <!--<columns>-->
+                    <!--<Column width="40%">-->
+                        <!--<Text text="{i18n>col_module}"/>-->
+                    <!--</Column>-->
+                    <!--<Column>-->
+                        <!--<Text text="{i18n>col_issues}"/>-->
+                    <!--</Column>-->
+                    <!--<Column>-->
+                        <!--<Text text="{i18n>col_coverage}"/>-->
+                    <!--</Column>-->
+                <!--</columns>-->
+                <!--<items>-->
+                    <!--<ColumnListItem>-->
+                        <!--<cells>-->
+                            <!--<Text text="{moduleName}"/>-->
+                            <!--<Text text="{issues}"/>-->
+                            <!--<Text text="{coverage}"/>-->
+                        <!--</cells>-->
+                    <!--</ColumnListItem>-->
+                <!--</items>-->
+            <!--</Table>-->
+        </wt:panelTable>
+    </wt:Panel>
+    <wt:Panel title="{i18n>title_performanceTest}"
+              subTitle="NOT AVAILABLE"
+              width="32%">
+        <wt:panelTable>
+            <!--<Table items="{path:'/performance'}" noDataText="COMING SOON">-->
+                <!--<columns>-->
+                    <!--<Column width="50%">-->
+                        <!--<Text text="{i18n>col_module}"/>-->
+                    <!--</Column>-->
+                    <!--<Column>-->
+                        <!--<Text text="{i18n>col_issues}"/>-->
+                    <!--</Column>-->
+                    <!--<Column>-->
+                        <!--<Text text="{i18n>col_coverage}"/>-->
+                    <!--</Column>-->
+                <!--</columns>-->
+                <!--<items>-->
+                    <!--<ColumnListItem>-->
+                        <!--<cells>-->
+                            <!--<Text text="{moduleName}"/>-->
+                            <!--<Text text="{issues}"/>-->
+                            <!--<Text text="{coverage}"/>-->
+                        <!--</cells>-->
+                    <!--</ColumnListItem>-->
+                <!--</items>-->
+            <!--</Table>-->
+        </wt:panelTable>
+    </wt:Panel>
+
+</core:FragmentDefinition>

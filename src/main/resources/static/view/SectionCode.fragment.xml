@@ -1,0 +1,97 @@
+<core:FragmentDefinition
+        xmlns="sap.m"
+        xmlns:mvc="sap.ui.core.mvc"
+        xmlns:wt="ase.wt.control"
+        xmlns:core="sap.ui.core">
+    <wt:Panel title="{i18n>title_techIssue}"
+              link="{path:'/techIssues/url'}"
+              subTitle="Number of Issues: {path:'/techIssues/count'}"
+              iconVisible = "{/techIssues/iconVisible}"
+              iconColor = "{/techIssues/iconColor}"
+              width="32%">
+        <wt:panelTable>
+            <Table items="{path:'/techIssues/data'}">
+                <columns>
+                    <Column width="40%" mergeDuplicates="true">
+                        <Text text="{i18n>col_module}"/>
+                    </Column>
+                    <Column>
+                        <Text text="{i18n>col_priority}"/>
+                    </Column>
+                    <Column>
+                        <Text text="{i18n>col_issues}"/>
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="{moduleName}"/>
+                            <Text text="{priority}"/>
+                            <Text text="{issues}"/>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </wt:panelTable>
+    </wt:Panel>
+    <wt:Panel title="{i18n>title_codeDebt}"
+              link="{path:'/codeDebt/url'}"
+              iconColor="{/codeDebt/iconColor}"
+              iconVisible="{/codeDebt/iconVisible}"
+              message = "{/codeDebt/message}"
+              width="32%">
+        <wt:panelTable>
+            <Table items="{path:'/codeDebt/data'}">
+                <columns>
+                    <Column width="40%" mergeDuplicates="true">
+                        <Text text="{i18n>col_module}"/>
+                    </Column>
+                    <Column>
+                        <Text text="{i18n>col_maintainability}"/>
+                    </Column>
+                    <Column>
+                        <Text text="{i18n>col_debtRatio}"/>
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="{moduleName}"/>
+                            <Text text="{maintainability}"/>
+                            <Text text="{debtRatio}"/>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </wt:panelTable>
+    </wt:Panel>
+    <wt:Panel title="{i18n>title_codeReview}"
+              subTitle="Text"
+              visible = "false"
+              width="32%">
+        <wt:panelTable>
+            <Table>
+                <columns>
+                    <Column>
+                        <Text text="{i18n>col_module}"/>
+                    </Column>
+                    <Column>
+                        <Text text="{i18n>col_issues}"/>
+                    </Column>
+                    <Column>
+                        <Text text="{i18n>col_coverage}"/>
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="{}"/>
+                            <Text text="{}"/>
+                            <Text text="{}"/>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </wt:panelTable>
+    </wt:Panel>
+</core:FragmentDefinition>

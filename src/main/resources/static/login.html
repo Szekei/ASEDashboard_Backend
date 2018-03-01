@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <title>ASE Dashboard</title>
+    <script src="https://openui5.hana.ondemand.com/resources/sap-ui-core.js"
+            id="sap-ui-bootstrap"
+            data-sap-ui-theme="sap_belize"
+            data-sap-ui-libs="sap.m"
+            data-sap-ui-compatVersion="edge"
+            data-sap-ui-preload="async"
+            data-sap-ui-resourceroots='{"ase.wt":"./"}'>
+    </script>
+    <script src="js/jquery.md5.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="sapUiBody" id="content">
+<div class="pen-title">
+    <h1>ASE Dashboard</h1>
+</div>
+<div class="module form-module">
+    <div class="toggle"><i class="fa fa-times fa-pencil"></i>
+        <div class="tooltip">Click Me</div>
+    </div>
+    <div class="form">
+        <h2>Login to your account</h2>
+        <form id="loginForm" onsubmit="return login()">
+            <input id="l_id" type="text" placeholder="SAP Employee ID" required/>
+            <input id="l_pwd" type="password" placeholder="Password" required/>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+    <div class="form">
+        <h2>Create an account</h2>
+        <form id="registerForm" onsubmit="return register()">
+            <input id="n_id" type="text" placeholder="SAP Employee ID" required/>
+            <input id="n_name" type="text" placeholder="User Name" required/>
+            <input id="n_pwd" type="password" placeholder="Password" required/>
+            <input id="n_mail" type="email" placeholder="Email Address" required/>
+            <button type="submit">Register</button>
+        </form>
+    </div>
+    <!--<div class="cta"><a href="">Forgot your password?</a></div>-->
+</div>
+<script src="js/index.js"></script>
+
+
+</body>
+</html>
